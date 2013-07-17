@@ -26,8 +26,8 @@ class MicropostsController < ApplicationController
 
   def correct_user
     unless current_user.admin?
-      @micropost = current_user.microposts.find_by(id: params[:id])
-      redirect_to root_url if @micropost.nil?
+      @micropost = Micropost.find_by(id: params[:id])
+      redirect_to root_url unless current_user?(@micropost.user)
     end
   end
 
