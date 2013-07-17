@@ -1,7 +1,10 @@
 <footer class="footer">
   <small>
-    <a href="http://railstutorial.org/">Rails Tutorial</a>
-    by Michael Hartl
+    <% if current_user && current_user.admin? %>
+      You have administrator powers!
+    <% else %>
+      Created with the Rails Tutorail by Michael Hartl
+    <% end %>
   </small>
   <nav>
     <ul>
